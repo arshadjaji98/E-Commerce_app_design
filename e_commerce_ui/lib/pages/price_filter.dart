@@ -1,0 +1,305 @@
+import 'package:flutter/material.dart';
+
+class PriceFilter extends StatefulWidget {
+  const PriceFilter({Key? key}) : super(key: key);
+
+  @override
+  State<PriceFilter> createState() => _PriceFilterState();
+}
+
+class _PriceFilterState extends State<PriceFilter> {
+  RangeValues _currentRangeValues = const RangeValues(0, 100);
+
+  final listOfN = ['All', 'Women', 'Men', 'Boys', 'Girls'];
+  List<int> selectedIndices = [];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Filters',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        leading: const Icon(Icons.arrow_back_ios),
+        centerTitle: true,
+      ),
+      backgroundColor: Colors.grey.shade200,
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                'Price range',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(height: 10),
+            Container(
+              height: 130,
+              width: double.infinity,
+              color: Colors.white,
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          '\$${_currentRangeValues.start.toInt()}',
+                          style: const TextStyle(fontSize: 16),
+                        ),
+                        Text(
+                          '\$${_currentRangeValues.end.toInt()}',
+                          style: const TextStyle(fontSize: 16),
+                        ),
+                      ],
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      showBottomSheet(
+                          context: context,
+                          builder: (context) => Row(
+                                children: [
+                                  Container(
+                                    width: 160,
+                                    height: 36,
+                                    color: Colors.red,
+                                  )
+                                ],
+                              ));
+                    },
+                    child: RangeSlider(
+                      activeColor: Colors.red,
+                      values: _currentRangeValues,
+                      min: 0,
+                      max: 200,
+                      divisions: 100,
+                      onChanged: (RangeValues values) {
+                        setState(() {
+                          _currentRangeValues = values;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                'Colors',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(height: 10),
+            Container(
+              width: double.infinity,
+              height: 100,
+              color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 46,
+                        width: 46,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.black,
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Container(
+                        height: 46,
+                        width: 46,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.grey.shade300,
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Container(
+                        height: 46,
+                        width: 46,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.red,
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Container(
+                        height: 46,
+                        width: 46,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color(0xffBEA9A9),
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Container(
+                        height: 46,
+                        width: 46,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color.fromARGB(255, 248, 192, 108),
+                        ),
+                      ),
+                      const SizedBox(width: 15),
+                      Container(
+                        height: 46,
+                        width: 46,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color(0xff151867),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                'Sizes',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(height: 10),
+            Container(
+              width: double.infinity,
+              height: 100,
+              color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: Colors.grey)),
+                      child: Center(
+                        child: Text('XS'),
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: Colors.grey)),
+                      child: Center(
+                        child: Text('S'),
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: Colors.grey)),
+                      child: Center(
+                        child: Text('M'),
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: Colors.grey)),
+                      child: Center(
+                        child: Text('L'),
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: Colors.grey)),
+                      child: Center(
+                        child: Text('XL'),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                'Category',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(height: 10),
+            Container(
+                width: double.infinity,
+                height: 140,
+                color: Colors.white,
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      mainAxisExtent: 50,
+                      crossAxisSpacing: 20,
+                      mainAxisSpacing: 10),
+                  itemCount: listOfN.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    bool isSelected = selectedIndices.contains(index);
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          if (isSelected) {
+                            selectedIndices.remove(index);
+                          } else {
+                            selectedIndices.add(index);
+                          }
+                        });
+                      },
+                      child: Container(
+                        height: 100,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          color: isSelected ? Colors.red : Colors.white,
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: Colors.grey),
+                        ),
+                        child: Center(
+                          child: Text(
+                            listOfN[index],
+                            style: TextStyle(
+                              color: isSelected ? Colors.white : Colors.black,
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ))
+          ],
+        ),
+      ),
+    );
+  }
+}
