@@ -1,5 +1,5 @@
-import 'package:e_commerce_ui/pages/componets/mybutton.dart';
-import 'package:e_commerce_ui/pages/componets/textfield.dart';
+import 'package:e_commerce_ui/componets/mybutton.dart';
+import 'package:e_commerce_ui/componets/textfield.dart';
 import 'package:e_commerce_ui/pages/forgot_password.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +21,11 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
         backgroundColor: Colors.grey.shade100,
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back_ios)),
       ),
       body: SingleChildScrollView(
         child: Column(

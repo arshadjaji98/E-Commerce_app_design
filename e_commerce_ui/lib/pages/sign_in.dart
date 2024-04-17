@@ -1,5 +1,5 @@
-import 'package:e_commerce_ui/pages/componets/mybutton.dart';
-import 'package:e_commerce_ui/pages/componets/textfield.dart';
+import 'package:e_commerce_ui/componets/mybutton.dart';
+import 'package:e_commerce_ui/componets/textfield.dart';
 import 'package:e_commerce_ui/pages/login.dart';
 import 'package:flutter/material.dart';
 

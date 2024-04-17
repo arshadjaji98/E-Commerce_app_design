@@ -1,3 +1,4 @@
+import 'package:e_commerce_ui/pages/brand.dart';
 import 'package:flutter/material.dart';
 
 class PriceFilter extends StatefulWidget {
@@ -21,7 +22,11 @@ class _PriceFilterState extends State<PriceFilter> {
           'Filters',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        leading: const Icon(Icons.arrow_back_ios),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back_ios)),
         centerTitle: true,
       ),
       backgroundColor: Colors.grey.shade200,
@@ -63,32 +68,17 @@ class _PriceFilterState extends State<PriceFilter> {
                       ],
                     ),
                   ),
-                  InkWell(
-                    onTap: () {
-                      showBottomSheet(
-                          context: context,
-                          builder: (context) => Row(
-                                children: [
-                                  Container(
-                                    width: 160,
-                                    height: 36,
-                                    color: Colors.red,
-                                  )
-                                ],
-                              ));
+                  RangeSlider(
+                    activeColor: Colors.red,
+                    values: _currentRangeValues,
+                    min: 0,
+                    max: 200,
+                    divisions: 100,
+                    onChanged: (RangeValues values) {
+                      setState(() {
+                        _currentRangeValues = values;
+                      });
                     },
-                    child: RangeSlider(
-                      activeColor: Colors.red,
-                      values: _currentRangeValues,
-                      min: 0,
-                      max: 200,
-                      divisions: 100,
-                      onChanged: (RangeValues values) {
-                        setState(() {
-                          _currentRangeValues = values;
-                        });
-                      },
-                    ),
                   ),
                 ],
               ),
@@ -255,48 +245,82 @@ class _PriceFilterState extends State<PriceFilter> {
             ),
             const SizedBox(height: 10),
             Container(
-                width: double.infinity,
-                height: 140,
-                color: Colors.white,
-                child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      mainAxisExtent: 50,
-                      crossAxisSpacing: 20,
-                      mainAxisSpacing: 10),
-                  itemCount: listOfN.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    bool isSelected = selectedIndices.contains(index);
-                    return GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          if (isSelected) {
-                            selectedIndices.remove(index);
-                          } else {
-                            selectedIndices.add(index);
-                          }
-                        });
-                      },
-                      child: Container(
-                        height: 100,
-                        width: 150,
-                        decoration: BoxDecoration(
-                          color: isSelected ? Colors.red : Colors.white,
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: Colors.grey),
-                        ),
-                        child: Center(
-                          child: Text(
-                            listOfN[index],
-                            style: TextStyle(
-                              color: isSelected ? Colors.white : Colors.black,
+              width: double.infinity,
+              height: 140,
+              color: Colors.white,
+              child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  mainAxisExtent: 50,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 10,
+                ),
+                itemCount: listOfN.length,
+                itemBuilder: (BuildContext context, int index) {
+                  bool isSelected = selectedIndices.contains(index);
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        if (isSelected) {
+                          selectedIndices.remove(index);
+                        } else {
+                          selectedIndices.add(index);
+                        }
+                      });
+                    },
+                    child: Center(
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: isSelected ? Colors.red : Colors.white,
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(color: Colors.grey),
+                          ),
+                          child: Center(
+                            child: Text(
+                              listOfN[index],
+                              style: TextStyle(
+                                color: isSelected ? Colors.white : Colors.black,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    );
-                  },
-                ))
+                    ),
+                  );
+                },
+              ),
+            ),
+            SizedBox(height: 15),
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Brand',
+                      ),
+                      Text(
+                        'adidas Originals, Jack & Jones, s.Oliver',
+                        style: TextStyle(color: Colors.grey, fontSize: 12),
+                      ),
+                    ],
+                  ),
+                  SizedBox(width: 70),
+                  IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => BrandScreen()));
+                      },
+                      icon: Icon(Icons.arrow_forward_ios, size: 18))
+                ],
+              ),
+            ),
           ],
         ),
       ),
