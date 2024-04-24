@@ -1,4 +1,5 @@
 import 'package:e_commerce_ui/pages/My_orders.dart';
+import 'package:e_commerce_ui/pages/settings_profile.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -18,18 +19,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
       backgroundColor: Colors.grey.shade200,
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 14),
+        padding: const EdgeInsets.symmetric(horizontal: 14),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'My profile',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 34),
             ),
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
-            Row(
+            const Row(
               children: [
                 CircleAvatar(
                   radius: 30,
@@ -52,11 +53,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 )
               ],
             ),
-            SizedBox(height: 28),
+            const SizedBox(height: 28),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
+                const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -72,21 +73,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 IconButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => MyOrders()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MyOrders()));
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_forward_ios,
                       color: Colors.grey,
                       size: 12,
                     ))
               ],
             ),
-            SizedBox(height: 18),
+            const SizedBox(height: 18),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
+                const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -102,18 +105,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_forward_ios,
                       color: Colors.grey,
                       size: 12,
                     ))
               ],
             ),
-            SizedBox(height: 18),
+            const SizedBox(height: 18),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
+                const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -129,18 +132,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_forward_ios,
                       color: Colors.grey,
                       size: 12,
                     ))
               ],
             ),
-            SizedBox(height: 18),
+            const SizedBox(height: 18),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
+                const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -156,18 +159,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_forward_ios,
                       color: Colors.grey,
                       size: 12,
                     ))
               ],
             ),
-            SizedBox(height: 18),
+            const SizedBox(height: 18),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
+                const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -183,18 +186,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_forward_ios,
                       color: Colors.grey,
                       size: 12,
                     ))
               ],
             ),
-            SizedBox(height: 18),
+            const SizedBox(height: 18),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
+                const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -209,8 +212,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ],
                 ),
                 IconButton(
-                    onPressed: () {},
-                    icon: Icon(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SettingsProfile()));
+                    },
+                    icon: const Icon(
                       Icons.arrow_forward_ios,
                       color: Colors.grey,
                       size: 12,

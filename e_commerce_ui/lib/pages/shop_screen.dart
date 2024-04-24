@@ -16,13 +16,9 @@ class ShopScreen extends StatefulWidget {
 class _ShopScreenState extends State<ShopScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
-  bool isFavorite = false;
+  bool isFavorite = true;
   Color iconColor = Colors.white;
   Color containerColor = Colors.grey;
-
-  bool isFavorite1 = false;
-  Color iconColor1 = Colors.white;
-  Color containerColor1 = Colors.grey;
 
   @override
   void initState() {
@@ -1263,12 +1259,12 @@ class _ShopScreenState extends State<ShopScreen>
                                           setState(() {
                                             isFavorite = !isFavorite;
                                             if (isFavorite) {
-                                              iconColor1 = const Color.fromRGBO(
+                                              iconColor = const Color.fromRGBO(
                                                   255, 255, 255, 1);
-                                              containerColor1 = Colors.black;
+                                              containerColor = Colors.black;
                                             } else {
-                                              iconColor1 = Colors.grey;
-                                              containerColor1 = Colors.red;
+                                              iconColor = Colors.grey;
+                                              containerColor = Colors.red;
                                             }
                                           });
                                         },
@@ -1276,7 +1272,7 @@ class _ShopScreenState extends State<ShopScreen>
                                           width: 40,
                                           height: 40,
                                           decoration: BoxDecoration(
-                                            color: isFavorite1
+                                            color: isFavorite
                                                 ? Colors.red
                                                 : Colors.white,
                                             borderRadius:
@@ -1284,7 +1280,7 @@ class _ShopScreenState extends State<ShopScreen>
                                           ),
                                           child: Icon(
                                             Icons.favorite_outline,
-                                            color: iconColor1,
+                                            color: iconColor,
                                             size: 24,
                                           ),
                                         ),
@@ -1378,7 +1374,1129 @@ class _ShopScreenState extends State<ShopScreen>
               ),
             ),
           ),
-          const Center(child: Text('Content for Man')),
+          SingleChildScrollView(
+            child: Center(
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 35,
+                  ),
+                  Container(
+                    height: 100,
+                    width: 343,
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: const Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'SUMMER SALES',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            'Up to 70% off',
+                            style: TextStyle(color: Colors.white, fontSize: 14),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Container(
+                    height: 100,
+                    width: 343,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      children: [
+                        const SizedBox(
+                          width: 23,
+                        ),
+                        const Text(
+                          'New',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(
+                          width: 105,
+                        ),
+                        Image.asset('assets/men (1).jpg'),
+                        Image.asset('assets/men (1).jpg')
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Container(
+                    height: 100,
+                    width: 343,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      children: [
+                        const SizedBox(
+                          width: 23,
+                        ),
+                        const Text(
+                          'Clothes',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(
+                          width: 73,
+                        ),
+                        Image.asset('assets/men (2).jpg'),
+                        Image.asset('assets/men (2).jpg')
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Container(
+                    height: 100,
+                    width: 343,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      children: [
+                        const SizedBox(
+                          width: 23,
+                        ),
+                        const Text(
+                          'Shoes',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(
+                          width: 87,
+                        ),
+                        Image.asset('assets/shoes.jpg'),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Container(
+                    height: 100,
+                    width: 343,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      children: [
+                        const SizedBox(
+                          width: 23,
+                        ),
+                        const Text(
+                          'Accessories',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(
+                          width: 30,
+                        ),
+                        Image.asset('assets/men (4).jpg'),
+                        Image.asset('assets/men (4).jpg')
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 48,
+                    width: 343,
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(
+                        25,
+                      ),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        'VIEW ALL ITEMS',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 40),
+                      child: Text(
+                        'Choose Category',
+                        style: TextStyle(color: Colors.grey, fontSize: 12),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 40),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Tops'),
+                          SizedBox(height: 32),
+                          Text('Shirts '),
+                          SizedBox(height: 32),
+                          Text(' Sweaters'),
+                          SizedBox(height: 32),
+                          Text('Knitwear'),
+                          SizedBox(height: 32),
+                          Text('Outerwear'),
+                          SizedBox(height: 32),
+                          Text('Pants'),
+                          SizedBox(height: 32),
+                          Text('Jeans'),
+                          SizedBox(height: 32),
+                          Text('Shorts'),
+                          SizedBox(height: 32),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: 150,
+                    color: Colors.white,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(left: 15),
+                          child: Text(
+                            "Men's tops",
+                            style: TextStyle(
+                                fontSize: 34, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: 100,
+                                  height: 30,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      borderRadius: BorderRadius.circular(29)),
+                                  child: const Center(
+                                    child: Text(
+                                      'T-shirts',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 12),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 7,
+                                ),
+                                Container(
+                                  width: 100,
+                                  height: 30,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      borderRadius: BorderRadius.circular(29)),
+                                  child: const Center(
+                                    child: Text(
+                                      'Crop tops',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 12),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 7,
+                                ),
+                                Container(
+                                  width: 100,
+                                  height: 30,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      borderRadius: BorderRadius.circular(29)),
+                                  child: const Center(
+                                    child: Text(
+                                      'Sleeveless',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 12),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 7,
+                                ),
+                                Container(
+                                  width: 100,
+                                  height: 30,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      borderRadius: BorderRadius.circular(29)),
+                                  child: const Center(
+                                    child: Text(
+                                      'Shirts',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 12),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 18,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => PriceFilter()));
+                            },
+                            child: Container(
+                              height: 30,
+                              width: 320,
+                              decoration:
+                                  BoxDecoration(color: Colors.grey.shade200),
+                              child: Row(children: [
+                                SvgPicture.asset('assets/Icon 3.svg'),
+                                const SizedBox(
+                                  width: 15,
+                                ),
+                                const Text('Filter'),
+                                const SizedBox(
+                                  width: 30,
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    _displayBottomSheet(context);
+                                  },
+                                  child: SvgPicture.asset(
+                                    'assets/Icon 2.svg',
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 15,
+                                ),
+                                const Text('Price: lowest to high'),
+                                const SizedBox(
+                                  width: 35,
+                                ),
+                                SvgPicture.asset('assets/Icon 1.svg'),
+                              ]),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  Stack(
+                    children: [
+                      Container(
+                        width: 343,
+                        height: 104,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8)),
+                        child: Row(
+                          children: [
+                            Image.asset('assets/men (5).jpg'),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    'Hoodie',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  const Text(
+                                    'Jaji',
+                                    style: TextStyle(
+                                        color: Colors.grey, fontSize: 11),
+                                  ),
+                                  Image.asset('assets/Rating.png'),
+                                  const Text(
+                                    '51\$',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 0,
+                        right: 0,
+                        child: Container(
+                          height: 36,
+                          width: 36,
+                          decoration: const BoxDecoration(
+                              color: Colors.white, shape: BoxShape.circle),
+                          child: const Icon(
+                            Icons.favorite_border,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 26,
+                  ),
+                  Stack(
+                    children: [
+                      Container(
+                        width: 343,
+                        height: 104,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8)),
+                        child: Row(
+                          children: [
+                            Image.asset('assets/men (4).jpg'),
+                            SizedBox(width: 70),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    'Suit',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  const Text(
+                                    'Jaji',
+                                    style: TextStyle(
+                                        color: Colors.grey, fontSize: 11),
+                                  ),
+                                  Image.asset('assets/Rating.png'),
+                                  const Text(
+                                    '34\$',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 0,
+                        right: 0,
+                        child: Container(
+                          height: 36,
+                          width: 36,
+                          decoration: const BoxDecoration(
+                              color: Colors.white, shape: BoxShape.circle),
+                          child: const Icon(
+                            Icons.favorite_border,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 26,
+                  ),
+                  Stack(
+                    children: [
+                      Container(
+                        width: 343,
+                        height: 104,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8)),
+                        child: Row(
+                          children: [
+                            Image.asset('assets/men (3).jpg'),
+                            const SizedBox(width: 70),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    'T-shirt',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  const Text(
+                                    'Jaji',
+                                    style: TextStyle(
+                                        color: Colors.grey, fontSize: 11),
+                                  ),
+                                  Image.asset('assets/full rating.png'),
+                                  const Text(
+                                    '12\$',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 0,
+                        right: 0,
+                        child: Container(
+                          height: 36,
+                          width: 36,
+                          decoration: const BoxDecoration(
+                              color: Colors.white, shape: BoxShape.circle),
+                          child: const Icon(
+                            Icons.favorite,
+                            color: Colors.red,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 26,
+                  ),
+                  Stack(
+                    children: [
+                      Container(
+                        width: 343,
+                        height: 104,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8)),
+                        child: Row(
+                          children: [
+                            Image.asset('assets/photo 22.png'),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    'Shirt',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  const Text(
+                                    'JAJI',
+                                    style: TextStyle(
+                                        color: Colors.grey, fontSize: 11),
+                                  ),
+                                  Image.asset('assets/full rating.png'),
+                                  SizedBox(width: 70),
+                                  const Text(
+                                    '51\$',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 0,
+                        right: 0,
+                        child: Container(
+                          height: 36,
+                          width: 36,
+                          decoration: const BoxDecoration(
+                              color: Colors.white, shape: BoxShape.circle),
+                          child: const Icon(
+                            Icons.favorite_border,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 10,
+                    ),
+                    child: GestureDetector(
+                      onTap: () {
+                        _displayAddtoCart(context);
+                      },
+                      child: Row(
+                        children: [
+                          Column(
+                            children: [
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Stack(
+                                    alignment: Alignment.bottomRight,
+                                    children: [
+                                      Image.asset('assets/photo 12.jpg'),
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            isFavorite = !isFavorite;
+                                            if (isFavorite) {
+                                              iconColor = Colors.white;
+                                              containerColor = Colors.black;
+                                            } else {
+                                              iconColor = Colors.grey;
+                                              containerColor = Colors.white;
+                                            }
+                                          });
+                                        },
+                                        child: Container(
+                                          width: 40,
+                                          height: 40,
+                                          decoration: BoxDecoration(
+                                            color: isFavorite
+                                                ? Colors.red
+                                                : Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                          ),
+                                          child: Icon(
+                                            Icons.favorite_outline,
+                                            color: iconColor,
+                                            size: 24,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const Row(
+                                    children: [
+                                      Icon(
+                                        Icons.star,
+                                        color: Color(0xffFFBA49),
+                                        size: 15,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Color(0xffFFBA49),
+                                        size: 15,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Color(0xffFFBA49),
+                                        size: 15,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Color(0xffFFBA49),
+                                        size: 15,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Color(0xffFFBA49),
+                                        size: 15,
+                                      ),
+                                      Text(
+                                        '(10)',
+                                        style: TextStyle(
+                                            fontSize: 12, color: Colors.grey),
+                                      ),
+                                    ],
+                                  ),
+                                  const Row(
+                                    children: [
+                                      Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          'Mango',
+                                          style: TextStyle(
+                                              fontSize: 12, color: Colors.grey),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'T-Shirt SPANISH',
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                      Row(
+                                        children: [
+                                          Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(
+                                              "9\$",
+                                              style: TextStyle(
+                                                fontSize: 15,
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            width: 18,
+                          ),
+                          Column(
+                            children: [
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Stack(
+                                    alignment: Alignment.bottomRight,
+                                    children: [
+                                      Image.asset('assets/photo 13.jpg'),
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            isFavorite = !isFavorite;
+                                            if (isFavorite) {
+                                              iconColor = Colors.white;
+                                              containerColor = Colors.black;
+                                            } else {
+                                              iconColor = Colors.grey;
+                                              containerColor = Colors.white;
+                                            }
+                                          });
+                                        },
+                                        child: Container(
+                                          width: 40,
+                                          height: 40,
+                                          decoration: BoxDecoration(
+                                            color: isFavorite
+                                                ? Colors.red
+                                                : Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                          ),
+                                          child: Icon(
+                                            Icons.favorite_outline,
+                                            color: iconColor,
+                                            size: 24,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const Row(
+                                    children: [
+                                      Icon(
+                                        Icons.star,
+                                        color: Color(0xffFFBA49),
+                                        size: 15,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Color(0xffFFBA49),
+                                        size: 15,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Color(0xffFFBA49),
+                                        size: 15,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Color(0xffFFBA49),
+                                        size: 15,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Color(0xffFFBA49),
+                                        size: 15,
+                                      ),
+                                      Text(
+                                        '(10)',
+                                        style: TextStyle(
+                                            fontSize: 12, color: Colors.grey),
+                                      ),
+                                    ],
+                                  ),
+                                  const Row(
+                                    children: [
+                                      Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          'Drothy Perkins',
+                                          style: TextStyle(
+                                              fontSize: 12, color: Colors.grey),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Blouse',
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                      Row(
+                                        children: [
+                                          Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(
+                                              "21\$",
+                                              style: TextStyle(
+                                                  fontSize: 15,
+                                                  color: Colors.grey,
+                                                  fontWeight: FontWeight.w600,
+                                                  decoration: TextDecoration
+                                                      .lineThrough,
+                                                  decorationColor: Colors.grey),
+                                            ),
+                                          ),
+                                          Text(
+                                            "14\$",
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 10,
+                    ),
+                    child: GestureDetector(
+                      onTap: () {
+                        _displayAddtoCart(context);
+                      },
+                      child: Row(
+                        children: [
+                          Column(
+                            children: [
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Stack(
+                                    alignment: Alignment.bottomRight,
+                                    children: [
+                                      Image.asset('assets/photo 12.jpg'),
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            isFavorite = !isFavorite;
+                                            if (isFavorite) {
+                                              iconColor = Colors.white;
+                                              containerColor = Colors.black;
+                                            } else {
+                                              iconColor = Colors.grey;
+                                              containerColor = Colors.white;
+                                            }
+                                          });
+                                        },
+                                        child: Container(
+                                          width: 40,
+                                          height: 40,
+                                          decoration: BoxDecoration(
+                                            color: isFavorite
+                                                ? Colors.red
+                                                : Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                          ),
+                                          child: Icon(
+                                            Icons.favorite_outline,
+                                            color: iconColor,
+                                            size: 24,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const Row(
+                                    children: [
+                                      Icon(
+                                        Icons.star_border,
+                                        color: Colors.grey,
+                                        size: 15,
+                                      ),
+                                      Icon(
+                                        Icons.star_border,
+                                        color: Colors.grey,
+                                        size: 15,
+                                      ),
+                                      Icon(
+                                        Icons.star_border,
+                                        color: Colors.grey,
+                                        size: 15,
+                                      ),
+                                      Icon(
+                                        Icons.star_border,
+                                        color: Colors.grey,
+                                        size: 15,
+                                      ),
+                                      Icon(
+                                        Icons.star_border,
+                                        color: Colors.grey,
+                                        size: 15,
+                                      ),
+                                      Text(
+                                        '(0)',
+                                        style: TextStyle(
+                                            fontSize: 12, color: Colors.grey),
+                                      ),
+                                    ],
+                                  ),
+                                  const Row(
+                                    children: [
+                                      Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          'Mango',
+                                          style: TextStyle(
+                                              fontSize: 12, color: Colors.grey),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Shirt',
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                      Row(
+                                        children: [
+                                          Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(
+                                              "9\$",
+                                              style: TextStyle(
+                                                fontSize: 15,
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            width: 18,
+                          ),
+                          Column(
+                            children: [
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Stack(
+                                    alignment: Alignment.bottomRight,
+                                    children: [
+                                      Image.asset('assets/photo 13.jpg'),
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            isFavorite = !isFavorite;
+                                            if (isFavorite) {
+                                              iconColor = const Color.fromRGBO(
+                                                  255, 255, 255, 1);
+                                              containerColor = Colors.black;
+                                            } else {
+                                              iconColor = Colors.grey;
+                                              containerColor = Colors.red;
+                                            }
+                                          });
+                                        },
+                                        child: Container(
+                                          width: 40,
+                                          height: 40,
+                                          decoration: BoxDecoration(
+                                            color: isFavorite
+                                                ? Colors.red
+                                                : Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                          ),
+                                          child: Icon(
+                                            Icons.favorite_outline,
+                                            color: iconColor,
+                                            size: 24,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const Row(
+                                    children: [
+                                      Icon(
+                                        Icons.star,
+                                        color: Color(0xffFFBA49),
+                                        size: 15,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Color(0xffFFBA49),
+                                        size: 15,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Color(0xffFFBA49),
+                                        size: 15,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Color(0xffFFBA49),
+                                        size: 15,
+                                      ),
+                                      Icon(
+                                        Icons.star_border,
+                                        color: Colors.grey,
+                                        size: 15,
+                                      ),
+                                      Text(
+                                        '(3)',
+                                        style: TextStyle(
+                                            fontSize: 12, color: Colors.grey),
+                                      ),
+                                    ],
+                                  ),
+                                  const Row(
+                                    children: [
+                                      Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          'Dorothy Perkins',
+                                          style: TextStyle(
+                                              fontSize: 12, color: Colors.grey),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Light Blouse',
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                      Row(
+                                        children: [
+                                          Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(
+                                              "9\$",
+                                              style: TextStyle(
+                                                fontSize: 15,
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
           const Center(child: Text('Content for Kids')),
         ],
       ),

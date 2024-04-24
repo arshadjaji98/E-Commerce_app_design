@@ -68,26 +68,20 @@ class _BrandScreenState extends State<BrandScreen> {
                 itemBuilder: (BuildContext context, int index) {
                   return CheckboxListTile(
                     activeColor: Colors.red,
-                    title: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          textColors[index] = textColors[index] == Colors.black
-                              ? Colors.red
-                              : Colors.black;
-                        });
-                      },
-                      child: Text(
-                        brands[index],
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: textColors[index],
-                        ),
+                    title: Text(
+                      brands[index],
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: textColors[index],
                       ),
                     ),
                     value: checked[index],
                     onChanged: (bool? value) {
                       setState(() {
                         checked[index] = value ?? false;
+                        // Change text color based on checkbox state
+                        textColors[index] =
+                            value ?? false ? Colors.red : Colors.black;
                       });
                     },
                   );

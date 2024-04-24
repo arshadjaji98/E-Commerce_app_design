@@ -14,6 +14,9 @@ class _PriceFilterState extends State<PriceFilter> {
   final listOfN = ['All', 'Women', 'Men', 'Boys', 'Girls'];
   List<int> selectedIndices = [];
 
+  final listOfSized = ['XS', 'S', 'M', 'L', 'XL'];
+  List<int> selectSized = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -173,65 +176,59 @@ class _PriceFilterState extends State<PriceFilter> {
               width: double.infinity,
               height: 100,
               color: Colors.white,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
-                  children: [
-                    Container(
-                      height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: Colors.grey)),
-                      child: Center(
-                        child: Text('XS'),
-                      ),
+              child: Center(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                  child: GridView.builder(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 5,
+                      mainAxisExtent: 50,
+                      crossAxisSpacing: 20,
+                      mainAxisSpacing: 10,
                     ),
-                    const SizedBox(width: 20),
-                    Container(
-                      height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: Colors.grey)),
-                      child: Center(
-                        child: Text('S'),
-                      ),
-                    ),
-                    const SizedBox(width: 20),
-                    Container(
-                      height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: Colors.grey)),
-                      child: Center(
-                        child: Text('M'),
-                      ),
-                    ),
-                    const SizedBox(width: 20),
-                    Container(
-                      height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: Colors.grey)),
-                      child: Center(
-                        child: Text('L'),
-                      ),
-                    ),
-                    const SizedBox(width: 20),
-                    Container(
-                      height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: Colors.grey)),
-                      child: Center(
-                        child: Text('XL'),
-                      ),
-                    ),
-                  ],
+                    itemCount: listOfSized.length,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (BuildContext context, int index) {
+                      bool isSelectedsize =
+                          selectSized.contains(index); // Corrected here
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            if (isSelectedsize) {
+                              selectSized.remove(index);
+                            } else {
+                              selectSized.add(index);
+                            }
+                          });
+                        },
+                        child: Center(
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color:
+                                    isSelectedsize ? Colors.red : Colors.white,
+                                borderRadius: BorderRadius.circular(8),
+                                border: Border.all(color: Colors.grey),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  listOfSized[index],
+                                  style: TextStyle(
+                                    color: isSelectedsize
+                                        ? Colors.white
+                                        : Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ),
             ),
@@ -248,48 +245,58 @@ class _PriceFilterState extends State<PriceFilter> {
               width: double.infinity,
               height: 140,
               color: Colors.white,
-              child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  mainAxisExtent: 50,
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 10,
-                ),
-                itemCount: listOfN.length,
-                itemBuilder: (BuildContext context, int index) {
-                  bool isSelected = selectedIndices.contains(index);
-                  return GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        if (isSelected) {
-                          selectedIndices.remove(index);
-                        } else {
-                          selectedIndices.add(index);
-                        }
-                      });
-                    },
-                    child: Center(
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: isSelected ? Colors.red : Colors.white,
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(color: Colors.grey),
-                          ),
-                          child: Center(
-                            child: Text(
-                              listOfN[index],
-                              style: TextStyle(
-                                color: isSelected ? Colors.white : Colors.black,
+              child: Center(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                  child: GridView.builder(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      mainAxisExtent: 50,
+                      crossAxisSpacing: 20,
+                      mainAxisSpacing: 10,
+                    ),
+                    itemCount: listOfN.length,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (BuildContext context, int index) {
+                      bool isSelected = selectedIndices.contains(index);
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            if (isSelected) {
+                              selectedIndices.remove(index);
+                            } else {
+                              selectedIndices.add(index);
+                            }
+                          });
+                        },
+                        child: Center(
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: isSelected ? Colors.red : Colors.white,
+                                borderRadius: BorderRadius.circular(8),
+                                border: Border.all(color: Colors.grey),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  listOfN[index],
+                                  style: TextStyle(
+                                    color: isSelected
+                                        ? Colors.white
+                                        : Colors.black,
+                                  ),
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                    ),
-                  );
-                },
+                      );
+                    },
+                  ),
+                ),
               ),
             ),
             SizedBox(height: 15),

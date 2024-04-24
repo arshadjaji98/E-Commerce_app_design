@@ -1,4 +1,4 @@
-import 'package:e_commerce_ui/pages/view_all.dart';
+import 'package:e_commerce_ui/pages/shop_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -93,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const ViewAllScreen()));
+                              builder: (context) => const ShopScreen()));
                     },
                     child: const Text(
                       'View all',
@@ -335,7 +335,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const ViewAllScreen()));
+                              builder: (context) => const ShopScreen()));
                     },
                     child: const Text(
                       'View all',

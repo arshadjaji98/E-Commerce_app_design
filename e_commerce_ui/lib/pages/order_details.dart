@@ -13,25 +13,25 @@ class _OrderDetailsState extends State<OrderDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Order Details'),
+        title: const Text('Order Details'),
         centerTitle: true,
         backgroundColor: Colors.grey.shade200,
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(Icons.arrow_back_ios)),
-        actions: [Icon(Icons.search)],
+            icon: const Icon(Icons.arrow_back_ios)),
+        actions: const [Icon(Icons.search)],
       ),
       backgroundColor: Colors.grey.shade200,
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 30),
-              Row(
+              const SizedBox(height: 30),
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
@@ -44,8 +44,8 @@ class _OrderDetailsState extends State<OrderDetails> {
                   ),
                 ],
               ),
-              SizedBox(height: 16),
-              Row(
+              const SizedBox(height: 16),
+              const Row(
                 children: [
                   Text(
                     'Tracking Number:',
@@ -62,12 +62,12 @@ class _OrderDetailsState extends State<OrderDetails> {
                   )
                 ],
               ),
-              SizedBox(height: 16),
-              Text(
+              const SizedBox(height: 16),
+              const Text(
                 '3 itmes',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               Container(
                 width: 343,
                 height: 104,
@@ -78,8 +78,8 @@ class _OrderDetailsState extends State<OrderDetails> {
                 child: Row(
                   children: [
                     Image.asset('assets/photo 31.png'),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -97,7 +97,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                             ],
                           ),
                           Text('Mango', style: TextStyle(color: Colors.grey)),
-                          const Row(
+                          Row(
                             children: [
                               Text(
                                 'Color:',
@@ -122,10 +122,10 @@ class _OrderDetailsState extends State<OrderDetails> {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 6),
+                          SizedBox(height: 6),
                           Row(
                             children: [
-                              const Text(
+                              Text(
                                 'Units:',
                                 style: TextStyle(color: Colors.grey),
                               ),
@@ -146,7 +146,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                   ],
                 ),
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               Container(
                 width: 343,
                 height: 104,
@@ -157,8 +157,8 @@ class _OrderDetailsState extends State<OrderDetails> {
                 child: Row(
                   children: [
                     Image.asset('assets/photo 27.png'),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -176,7 +176,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                             ],
                           ),
                           Text('Mango', style: TextStyle(color: Colors.grey)),
-                          const Row(
+                          Row(
                             children: [
                               Text(
                                 'Color:',
@@ -201,10 +201,10 @@ class _OrderDetailsState extends State<OrderDetails> {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 6),
+                          SizedBox(height: 6),
                           Row(
                             children: [
-                              const Text(
+                              Text(
                                 'Units:',
                                 style: TextStyle(color: Colors.grey),
                               ),
@@ -225,7 +225,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                   ],
                 ),
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               Container(
                 width: 343,
                 height: 104,
@@ -236,8 +236,8 @@ class _OrderDetailsState extends State<OrderDetails> {
                 child: Row(
                   children: [
                     Image.asset('assets/photo 28.png'),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -255,7 +255,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                             ],
                           ),
                           Text('Mango', style: TextStyle(color: Colors.grey)),
-                          const Row(
+                          Row(
                             children: [
                               Text(
                                 'Color:',
@@ -280,10 +280,10 @@ class _OrderDetailsState extends State<OrderDetails> {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 6),
+                          SizedBox(height: 6),
                           Row(
                             children: [
-                              const Text(
+                              Text(
                                 'Units:',
                                 style: TextStyle(color: Colors.grey),
                               ),
@@ -304,10 +304,10 @@ class _OrderDetailsState extends State<OrderDetails> {
                   ],
                 ),
               ),
-              SizedBox(height: 34),
-              Text('Order information'),
-              SizedBox(height: 15),
-              Row(
+              const SizedBox(height: 34),
+              const Text('Order information'),
+              const SizedBox(height: 15),
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -321,25 +321,25 @@ class _OrderDetailsState extends State<OrderDetails> {
                   ),
                 ],
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Payment method:  ',
                     style: TextStyle(color: Colors.grey),
                   ),
                   SvgPicture.asset('assets/mastercard.svg'),
-                  SizedBox(width: 15),
-                  Text(
+                  const SizedBox(width: 15),
+                  const Text(
                     '**** **** **** 3947',
                     style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
-              SizedBox(height: 27),
-              Row(
+              const SizedBox(height: 27),
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -356,8 +356,8 @@ class _OrderDetailsState extends State<OrderDetails> {
                   ),
                 ],
               ),
-              SizedBox(height: 27),
-              Row(
+              const SizedBox(height: 27),
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -371,8 +371,8 @@ class _OrderDetailsState extends State<OrderDetails> {
                   ),
                 ],
               ),
-              SizedBox(height: 27),
-              Row(
+              const SizedBox(height: 27),
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -386,6 +386,37 @@ class _OrderDetailsState extends State<OrderDetails> {
                   ),
                 ],
               ),
+              const SizedBox(height: 34),
+              Row(
+                children: [
+                  Container(
+                    width: 150,
+                    height: 36,
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(20)),
+                    child: const Center(
+                      child: Text('Reorder'),
+                    ),
+                  ),
+                  const SizedBox(width: 22),
+                  Container(
+                    width: 150,
+                    height: 36,
+                    decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: const Center(
+                      child: Text(
+                        'Leave feedback',
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 22),
             ],
           ),
         ),

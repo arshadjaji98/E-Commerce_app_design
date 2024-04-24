@@ -10,7 +10,7 @@ class AddtocartScreen extends StatefulWidget {
 }
 
 class _AddtocartScreenState extends State<AddtocartScreen> {
-  bool isFavorite = false;
+  bool isFavorite = true;
   Color iconColor = Colors.white;
   Color containerColor = Colors.grey;
   String dropDownValue = 'Size';
