@@ -1,7 +1,12 @@
 import 'package:e_commerce_ui/componets/mybutton.dart';
 import 'package:e_commerce_ui/componets/textfield.dart';
+import 'package:e_commerce_ui/pages/Utils.dart';
 import 'package:e_commerce_ui/pages/forgot_password.dart';
+import 'package:e_commerce_ui/pages/homepage.dart';
+import 'package:e_commerce_ui/services/auth_services.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -11,9 +16,18 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final controller = TextEditingController();
+  final FirebaseAuthService _auth = FirebaseAuthService();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  bool isLoading = false;
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
             MyTextField(
                 controller: passwordController,
                 hintText: 'Password',
-                obscureText: false),
+                obscureText: true),
             const SizedBox(
               height: 10,
             ),
@@ -81,7 +95,11 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(
               height: 28,
             ),
-            MyButton(onTap: () {}, text: 'LOGIN', isLoading: false),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 18),
+              child:
+                  MyButton(onTap: _logIn, text: 'LOGIN', isLoading: isLoading),
+            ),
             const SizedBox(
               height: 126,
             ),
@@ -92,7 +110,11 @@ class _LoginScreenState extends State<LoginScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset('assets/Google.png'),
+                GestureDetector(
+                    onTap: () {
+                      FirebaseAuthService().signInWithGoogle();
+                    },
+                    child: Image.asset('assets/Google.png')),
                 Image.asset('assets/Facebook.png'),
               ],
             ),
@@ -100,5 +122,25 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  void _logIn() async {
+    setState(() {
+      isLoading = true;
+    });
+    String email = emailController.text;
+    String password = passwordController.text;
+
+    User? user = await _auth.logInWithEmailAndPassword(email, password);
+    setState(() {
+      isLoading = true;
+    });
+    if (user != null) {
+      Utils.toastMessage('user successfully logged in');
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => HomePage()));
+    } else {
+      Utils.toastMessage('There is an error');
+    }
   }
 }

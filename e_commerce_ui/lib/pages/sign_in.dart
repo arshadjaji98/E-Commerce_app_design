@@ -1,7 +1,12 @@
 import 'package:e_commerce_ui/componets/mybutton.dart';
 import 'package:e_commerce_ui/componets/textfield.dart';
+import 'package:e_commerce_ui/pages/Utils.dart';
+import 'package:e_commerce_ui/pages/homepage.dart';
 import 'package:e_commerce_ui/pages/login.dart';
+import 'package:e_commerce_ui/services/auth_services.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -11,9 +16,21 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-  final controller = TextEditingController();
+  final FirebaseAuthService _auth = FirebaseAuthService();
+  final userNameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  bool isLoading = false;
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    userNameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +56,9 @@ class _SignInScreenState extends State<SignInScreen> {
               height: 73,
             ),
             MyTextField(
-                controller: controller, hintText: 'Name', obscureText: false),
+                controller: userNameController,
+                hintText: 'Name',
+                obscureText: false),
             const SizedBox(
               height: 8,
             ),
@@ -53,7 +72,7 @@ class _SignInScreenState extends State<SignInScreen> {
             MyTextField(
                 controller: passwordController,
                 hintText: 'Password',
-                obscureText: false),
+                obscureText: true),
             const SizedBox(
               height: 10,
             ),
@@ -80,7 +99,11 @@ class _SignInScreenState extends State<SignInScreen> {
             const SizedBox(
               height: 28,
             ),
-            MyButton(onTap: () {}, text: 'SIGN UP', isLoading: false),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 18),
+              child: MyButton(
+                  onTap: _signUp, text: 'SIGN UP', isLoading: isLoading),
+            ),
             const SizedBox(
               height: 126,
             ),
@@ -91,7 +114,11 @@ class _SignInScreenState extends State<SignInScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset('assets/Google.png'),
+                GestureDetector(
+                    onTap: () {
+                      FirebaseAuthService().signInWithGoogle();
+                    },
+                    child: Image.asset('assets/Google.png')),
                 Image.asset('assets/Facebook.png'),
               ],
             ),
@@ -99,5 +126,28 @@ class _SignInScreenState extends State<SignInScreen> {
         ),
       ),
     );
+  }
+
+  void _signUp() async {
+    setState(() {
+      isLoading = true;
+    });
+    // ignore: unused_local_variable
+    String userName = userNameController.text;
+    String email = emailController.text;
+    String password = passwordController.text;
+
+    User? user = await _auth.signUpWithEmailAndPassword(email, password);
+    setState(() {
+      isLoading = false;
+    });
+
+    if (user != null) {
+      Utils.toastMessage('user successfully created');
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => HomePage()));
+    } else {
+      Utils.toastMessage('There is an error');
+    }
   }
 }

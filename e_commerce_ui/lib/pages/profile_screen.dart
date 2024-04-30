@@ -1,5 +1,7 @@
 import 'package:e_commerce_ui/pages/My_orders.dart';
+import 'package:e_commerce_ui/pages/login.dart';
 import 'package:e_commerce_ui/pages/settings_profile.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -15,7 +17,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.grey.shade200,
-        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.search))],
+        actions: [
+          IconButton(
+              onPressed: () async {
+                FirebaseAuth.instance.signOut();
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()));
+              },
+              icon: const Icon(Icons.logout))
+        ],
       ),
       backgroundColor: Colors.grey.shade200,
       body: Padding(

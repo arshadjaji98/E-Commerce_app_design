@@ -9,7 +9,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool isFavorite = false;
+  bool isFavorite = true;
   Color iconColor = Colors.white;
   Color containerColor = Colors.grey;
   @override
@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Image.asset(
                 'assets/background.jpg',
                 width: double.infinity,
-                fit: BoxFit.fitWidth,
+                fit: BoxFit.fitHeight,
                 height: 536,
               ),
               Positioned(
@@ -880,6 +880,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
+          SizedBox(height: 20),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -908,12 +909,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Column(
                     children: [
-                      SizedBox(
-                        height: 80,
-                      ),
+                      // SizedBox(
+                      //   height: 30,
+                      // ),
                       const Center(
                         child: Text(
-                          'Summer\nsale',
+                          '\nSummer\nsale',
                           style: TextStyle(
                               fontSize: 32,
                               color: Colors.red,
@@ -922,7 +923,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 110,
+                        height: 40,
                       ),
                       Image.asset(
                         'assets/photo 5.png',

@@ -45,6 +45,12 @@ dependencies:
   csc_picker: ^0.2.7
   country_code_picker: ^3.0.0
   country_picker: ^2.0.25
+  firebase_core: ^2.30.1
+  cloud_firestore: ^4.17.2
+  firebase_auth: ^4.19.4
+  fluttertoast: ^8.2.5
+  google_sign_in: ^6.2.1
+  
 
 dev_dependencies:
   flutter_test:
